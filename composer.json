@@ -1,0 +1,23 @@
+{
+    "name": "uptodown/collection",
+    "authors": [
+        {
+            "name": "Daniel Rivas",
+            "email": "daniel@uptodown.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Uptodown\\Collection\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Uptodown\\Collection\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "illuminate/contracts" :"*",
+        "uptodown/equalable": "^1.0"
+    }
+}
