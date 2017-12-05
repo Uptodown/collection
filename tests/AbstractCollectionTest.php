@@ -53,6 +53,13 @@ class AbstractCollectionTest extends TestCase
     }
 
     /** @test */
+    public function getLastItem()
+    {
+        $collection = $this->getMockCollectionOneToTen();
+        $this->assertEquals($collection->end(), end($this->getArrayOneToTen()));
+    }
+
+    /** @test */
     public function collectionDoesntHaveAnElement()
     {
         $collection = $this->getMockCollectionOneToTen();

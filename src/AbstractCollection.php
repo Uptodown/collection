@@ -67,6 +67,11 @@ abstract class AbstractCollection implements \IteratorAggregate, \Countable, \Js
         }
     }
 
+    public function end()
+    {
+        return end($this->collection);
+    }
+
     public function addArray(array $array) // : static
     {
         while (! empty($array)) {
