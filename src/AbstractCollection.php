@@ -3,6 +3,7 @@
 namespace Uptodown\Collection;
 
 use Illuminate\Contracts\Support\Arrayable;
+use Uptodown\EqualableInterface\Equalable;
 
 abstract class AbstractCollection implements \IteratorAggregate, \Countable, \JsonSerializable, Arrayable
 {
