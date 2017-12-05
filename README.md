@@ -1,6 +1,6 @@
 # Collection
 
-A base collection class for managing group of items of the same class
+A base collection class for managing groups of items of the same class
 
 [![Packagist](https://img.shields.io/packagist/dt/uptodown/collection.svg?style=flat-square)](https://packagist.org/packages/uptodown/random-username-generator) [![MIT License](https://img.shields.io/badge/license-MIT-007EC7.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 
