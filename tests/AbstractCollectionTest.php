@@ -10,13 +10,7 @@ class AbstractCollectionTest extends TestCase
     public function createNewCollection()
     {
         $collection = $this->getMockCollectionOneToTen();
-    }
-
-    /** @test */
-    public function createNewCollectionWithEmptyArrayThrowsException()
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $collection = new MockCollection([]);
+        $this->assertNotEmpty($collection);
     }
 
     /** @test */
@@ -56,7 +50,10 @@ class AbstractCollectionTest extends TestCase
     public function getLastItem()
     {
         $collection = $this->getMockCollectionOneToTen();
-        $this->assertEquals($collection->end(), end($this->getArrayOneToTen()));
+        $collectionLastItem = $collection->end();
+        $array = $this->getArrayOneToTen();
+        $arrayLastItem = end($array);
+        $this->assertEquals($collectionLastItem, $arrayLastItem);
     }
 
     /** @test */

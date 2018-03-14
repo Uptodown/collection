@@ -17,16 +17,8 @@ abstract class AbstractCollection implements \IteratorAggregate, \Countable, \Js
 
     protected function checkArrayBelongToThis(array $array)
     {
-        $this->checkArrayNotEmpty($array);
         foreach ($array as $item) {
             $this->checkItemBelongToThis($item);
-        }
-    }
-
-    protected function checkArrayNotEmpty(array $array)
-    {
-        if (empty($array)) {
-            throw new \InvalidArgumentException('Array can\'t be empty');
         }
     }
 
