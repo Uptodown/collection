@@ -39,6 +39,25 @@ class AbstractCollectionTest extends TestCase
     }
 
     /** @test */
+    public function removeElement()
+    {
+        $collection = $this->getMockCollectionOneToTen();
+        $element = new MockObject(5);
+        $this->assertTrue($collection->has($element));
+        $collection->remove($element);
+        $this->assertFalse($collection->has($element));
+    }
+
+    /** @test */
+    public function removeInvalidElementThrowsException()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $collection = $this->getMockCollectionOneToTen();
+        $newElement = new \stdClass();
+        $collection->remove($newElement);
+    }
+
+    /** @test */
     public function collectionHasAnElement()
     {
         $collection = $this->getMockCollectionOneToTen();
