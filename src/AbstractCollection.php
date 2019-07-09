@@ -44,6 +44,18 @@ abstract class AbstractCollection implements \IteratorAggregate, \Countable, \Js
         return $this;
     }
 
+    public function remove($item) // : static
+    {
+        $this->checkItemBelongToThis($item);
+        $this->collection = array_filter(
+            $this->collection,
+            function ($collectionItem) use ($item) {
+                return ! $collectionItem->equals($item);
+            }
+        );
+        return $this;
+    }
+
     public function has($item) // : bool
     {
         try {
