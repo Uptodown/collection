@@ -144,6 +144,22 @@ class AbstractCollectionTest extends TestCase
         $this->assertCount($collection->count(), $result);
     }
 
+    /** @test */
+    public function filter()
+    {
+        $collection = $this->getMockCollectionOneToTen();
+        $previousCount = $collection->count();
+        $collection->filter(
+            function (MockObject $object) {
+                return $object->value <= 5;
+            }
+        );
+        $this->assertCount($previousCount/2, $collection);
+        foreach ($collection->getIterator() as $element) {
+            $this->assertLessThanOrEqual(5, $element->value);
+        }
+    }
+
     private function getMockCollectionOneToTen() // : MockCollection
     {
         return new MockCollection($this->getArrayOneToTen());

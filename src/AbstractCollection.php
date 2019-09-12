@@ -2,7 +2,6 @@
 
 namespace Uptodown\Collection;
 
-use Closure;
 use Illuminate\Contracts\Support\Arrayable;
 use Uptodown\EqualableInterface\Equalable;
 
@@ -117,5 +116,14 @@ abstract class AbstractCollection implements \IteratorAggregate, \Countable, \Js
             $callback,
             $this->collection
         );
+    }
+
+    public function filter(callable $callback) // : static
+    {
+        $this->collection = array_filter(
+            $this->collection,
+            $callback
+        );
+        return $this;
     }
 }
