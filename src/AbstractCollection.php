@@ -111,7 +111,7 @@ abstract class AbstractCollection implements \IteratorAggregate, \Countable, \Js
         return $this->collection;
     }
 
-    public function map(Closure $callback) // : array
+    public function map(callable $callback) // : array
     {
         return array_map(
             $callback,
