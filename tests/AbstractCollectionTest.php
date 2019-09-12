@@ -115,6 +115,35 @@ class AbstractCollectionTest extends TestCase
         $this->assertEquals($collection->toArray(), $this->getArrayOneToTen());
     }
 
+    /** @test */
+    public function map()
+    {
+        $collection = $this->getMockCollectionOneToTen();
+        $result = $collection->map(
+            function (MockObject $object) {
+                return $object->value * 2;
+            }
+        );
+        $this->assertIsArray($result);
+        $this->assertCount($collection->count(), $result);
+        foreach ($collection->getIterator() as $index => $element) {
+            $this->assertEquals($element->value * 2, $result[$index]);
+        }
+    }
+
+    /** @test */
+    public function mapWithEmptyCollection()
+    {
+        $collection = new MockCollection();
+        $result = $collection->map(
+            function (MockObject $object) {
+                return $object->value * 2;
+            }
+        );
+        $this->assertIsArray($result);
+        $this->assertCount($collection->count(), $result);
+    }
+
     private function getMockCollectionOneToTen() // : MockCollection
     {
         return new MockCollection($this->getArrayOneToTen());
